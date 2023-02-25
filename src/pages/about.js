@@ -1,7 +1,7 @@
-import Button from "@/components/Button/Button";
+import style from "../styles/About.module.css";
 
-function AboutPage() {
-  return <Button>BRUBDKHBFDSJKFHSDKJFHS</Button>;
+function about() {
+  return;
 }
 
-export default AboutPage;
+export default about;

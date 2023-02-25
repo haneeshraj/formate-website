@@ -1,12 +1,20 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Button from "@/components/Button/Button";
+import QuestionBox from "@/components/QuestionBox/QuestionBox";
+import questions from "public/data/aboutQuestion";
 
-const inter = Inter({ subsets: ["latin"] });
+function ContactBoxes({ icon, text }) {
+  return (
+    <div className={styles.contactBoxContainer}>
+      <Image src={`/images/${icon}.png`} width="100" height="100" alt={icon} />
+      <span>{text}</span>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -48,13 +56,56 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className={`${styles.section} ${styles.about}`}></section>
+          <section className={`${styles.section} ${styles.about}`}>
+            <div className={styles.aboutHeading}>About me</div>
+            <p className={styles.aboutPara}>
+              Adipisicing dolor duis id sunt quis.
+            </p>
+            <div className={styles.aboutQuestions}>
+              {questions.map((question) => {
+                return (
+                  <QuestionBox
+                    key={question.id}
+                    question={question.question}
+                    answer={question.answer}
+                    icon={question.icon}
+                  />
+                );
+              })}
+            </div>
+          </section>
           <section className={`${styles.section} ${styles.services}`}></section>
           <section
             className={`${styles.section} ${styles.clientele}`}
           ></section>
           <section className={`${styles.section} ${styles.reviews}`}></section>
-          <section className={`${styles.section} ${styles.contact}`}></section>
+          <section className={`${styles.section} ${styles.contact}`}>
+            <div className={styles.contactLeftSection}>
+              <ContactBoxes />
+              <ContactBoxes />
+              <ContactBoxes />
+              <ContactBoxes />
+            </div>
+            <div className={styles.contactRightSection}>
+              <h1>Get In Touch</h1>
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
+              <div className={styles.contactDetails}>
+                <form onSubmit={() => console.log("it work")}>
+                  <label for="firstName">First Name</label>
+                  <input type="text" name="firstName" />
+                  <label for="lastName">Last Name</label>
+                  <input type="text" name="lastName" />
+                  <label for="email">E-mail</label>
+                  <input type="email" name="email" />
+                  <label for="phoneNumber">Phone Number</label>
+                  <input type="text" name="phoneNumber" />
+                  <label for="message">Message</label>
+                  <textarea name="firstName" />
+                </form>
+              </div>
+              <Image src={"/images/"} alt={"image"} width={300} height={300} />
+            </div>
+          </section>
         </div>
         <Footer />
       </div>{" "}

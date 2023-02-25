@@ -1,6 +1,6 @@
 .section {
   min-height: 100vh;
-  padding: var(--navbar-height) 100px 0;
+  padding: 0 100px 0;
   min-width: 300px;
   max-width: 100vw;
 }
@@ -38,7 +38,8 @@
 }
 
 .imageContainer {
-  width: 32rem;
+  width: 35rem;
+  padding: 0 2rem;
 }
 
 .image {
@@ -61,8 +62,27 @@
 /* About Section */
 
 .about {
-  background-color: green;
+  background-color: var(--secondary-background);
+  padding: 72px 100px;
 }
+.about .aboutHeading {
+  font-size: 4rem;
+  color: var(--heading);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+.about .aboutPara {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+.aboutQuestions {
+  padding: 1rem;
+}
+/* Services Section */
 
 .services {
   background-color: pink;
@@ -80,31 +100,72 @@
   background-color: salmon;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1400px) {
+  .section {
+    padding: 0 100px 0;
+  }
   .imageContainer {
     width: 30rem;
   }
+  .about {
+    padding: 72px 100px;
+  }
 }
 
-@media only screen and (max-width: 1150px) {
-  .imageContainer {
-    display: none;
+@media only screen and (max-width: 1280px) {
+  .section {
+    padding: 0 100px 0;
   }
+  .imageContainer {
+    width: 25rem;
+  }
+  .introLeft {
+    max-width: 425px;
+  }
+  .introLeft h1 {
+    font-size: 3.75rem;
+  }
+  .introLeft h3 {
+    font-size: 1.75rem;
+  }
+  .about {
+    padding: 72px 100px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .introduction {
     justify-content: center;
   }
-}
 
-@media only screen and (max-width: 700px) {
+  .imageContainer {
+    display: none;
+  }
+
   .introLeft h1 {
     font-size: 4rem;
   }
   .introLeft h3 {
     font-size: 2rem;
   }
+  .about {
+    text-align: center;
+    padding: 72px 50px;
+  }
+  .about .aboutHeading {
+    margin-bottom: 0;
+    margin-left: 0;
+    font-size: 3rem;
+  }
+
+  .about .aboutPara {
+    margin-bottom: 0;
+    margin-left: 0;
+    font-size: 1rem;
+  }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 520px) {
   .introLeft {
     max-width: 300px;
   }
@@ -112,27 +173,36 @@
     font-size: 3rem;
   }
   .introLeft h3 {
-    font-size: 1.75 rem;
+    font-size: 1.5rem;
+  }
+  .about {
+    padding: 72px 0px;
   }
 }
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 374px) {
+  .section {
+    padding: 0 100px 0;
+  }
   .introLeft {
-    max-width: 175px;
+    max-width: 250px;
   }
   .introLeft h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
   }
   .introLeft h3 {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     font-size: 1rem;
   }
   .introLeft p {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-size: 0.75rem;
   }
 
   .buttons div:first-child {
     margin-right: 1rem;
+  }
+  .about {
+    padding: 72px 0px;
   }
 }

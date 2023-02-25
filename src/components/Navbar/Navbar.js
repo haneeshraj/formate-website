@@ -46,14 +46,14 @@ function Navbar({ home, about, discography, gallery, contact }) {
           </Link>
         </ul>
         <div
-          class={`${style.hamburger} ${open ? style.active : ""}`}
+          className={`${style.hamburger} ${open ? style.active : ""}`}
           onClick={() => {
             setOpen(!open);
           }}
         >
-          <span class={style.bar}></span>
-          <span class={style.bar}></span>
-          <span class={style.bar}></span>
+          <span className={style.bar}></span>
+          <span className={style.bar}></span>
+          <span className={style.bar}></span>
         </div>
       </nav>
     </header>

@@ -1,0 +1,48 @@
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 300px;
+  height: 350px;
+  display: block;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+  transition: background-color 300ms;
+}
+
+.container::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  background-image: url("/images/test.jpg");
+  background-size: cover;
+}
+
+.container .text h1 {
+  color: var(--heading);
+  transition: transform 500ms cubic-bezier(0.335, 0.005, 0, 1.005);
+  margin-bottom: 0.25rem;
+}
+
+.container .text p {
+  color: var(--heading);
+  font-size: 0.75rem;
+  transition: transform 600ms cubic-bezier(0.785, 0, 0, 1.005);
+}
+
+.container:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.container:hover h1 {
+  transform: translateX(1rem);
+}
+
+.container:hover p {
+  transform: translateX(1rem);
+}
