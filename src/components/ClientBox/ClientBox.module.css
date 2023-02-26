@@ -1,7 +1,7 @@
 .container {
   background-color: rgba(0, 0, 0, 0.6);
-  width: 300px;
-  height: 350px;
+  min-width: 300px;
+  min-height: 440px;
   display: block;
   position: relative;
   display: flex;
@@ -31,7 +31,7 @@
 
 .container .text p {
   color: var(--heading);
-  font-size: 0.75rem;
+  font-size: 0.75em;
   transition: transform 600ms cubic-bezier(0.785, 0, 0, 1.005);
 }
 
@@ -45,4 +45,14 @@
 
 .container:hover p {
   transform: translateX(1rem);
+}
+
+@media only screen and (max-width: 560px) {
+  .container {
+    min-width: 200px;
+    min-height: 230px;
+  }
+  .container .text h1 {
+    font-size: 1rem;
+  }
 }

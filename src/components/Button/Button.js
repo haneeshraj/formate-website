@@ -1,10 +1,11 @@
 import { useRef } from "react";
 import style from "./Button.module.css";
 
-function Button({ children, height, width, main, bg }) {
+function Button({ children, height, width, main, bg, styles }) {
   const styling = {
     height: !height ? "40px" : height,
     width: !width ? "175px" : width,
+    ...styles,
   };
   const audioRef = useRef();
   const play = () => {

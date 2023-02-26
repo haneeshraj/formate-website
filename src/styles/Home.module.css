@@ -70,13 +70,11 @@
   color: var(--heading);
   font-weight: 700;
   margin-bottom: 1rem;
-  margin-left: 2rem;
 }
 
 .about .aboutPara {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  margin-left: 2rem;
 }
 
 .aboutQuestions {
@@ -88,24 +86,178 @@
   background-color: pink;
 }
 
+/* Clientele Section */
 .clientele {
-  background-color: burlywood;
+  padding-bottom: 100px;
 }
+
+.clients {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.clientele h1 {
+  color: var(--heading);
+  font-size: 3rem;
+  text-align: center;
+  width: fit-content;
+}
+
+.clienteleHeading {
+  margin: 4em;
+  display: flex;
+  justify-content: center;
+}
+
+/* Reviews Section */
 
 .reviews {
-  background-color: gold;
+  min-height: 500px;
+  background-color: var(--secondary-background);
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
+
+.reviews h1 {
+  font-size: 4rem;
+  color: var(--heading);
+  margin: 0 auto;
+}
+
+.reviews h3 {
+  margin-bottom: 3rem;
+}
+/* Contact Section */
 
 .contact {
-  background-color: salmon;
+  background-color: var(--background);
+  padding-top: 100px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  min-height: 700px;
 }
 
+.contactLeftSection {
+  background-color: var(--secondary-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  padding: 36px;
+  border-radius: 6px;
+}
+
+.contactImage {
+  width: 60%;
+  margin-left: 20px;
+}
+
+.contactBoxContainer {
+  border-radius: 6px;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: row;
+  width: calc(19px * 15);
+  height: calc(9px * 15);
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 12px;
+  transition: transform 300ms var(--ease);
+}
+
+.contactBoxContainer:hover,
+.contactBoxContainer:focus {
+  transform: translateY(-0.5rem);
+}
+
+.contactBoxContainer span {
+  cursor: default;
+  transition: transform 300ms cubic-bezier(0.335, 0.005, 0, 1.005);
+}
+.contactBoxContainer:hover span {
+  transform: translateX(0.5rem);
+}
+
+.contactRightSection {
+  border-radius: 6px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 65%;
+  background-color: var(--secondary-background);
+}
+
+.contactDetails h1 {
+  font-size: 42px;
+  color: var(--heading);
+}
+
+.contactDetails p {
+  font-size: 16px;
+  margin-bottom: 2rem;
+}
+
+.contactDetails form {
+  width: 100%;
+}
+
+.contactDetails label {
+  font-size: 0.75rem;
+}
+.contactDetails input {
+  display: block;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  margin-right: 6rem;
+  width: 90%;
+  height: 2.5rem;
+  padding: 1rem 0.5rem;
+  background-color: var(--background);
+  color: var(--heading);
+  border-style: none;
+}
+
+.contactDetails textarea {
+  display: block;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0.75rem 0 2rem;
+  height: 175px;
+  resize: none;
+  padding: 1rem 1rem;
+  background-color: var(--background);
+  color: var(--heading);
+  border-style: none;
+  font-family: var(--font);
+  font-weight: 400;
+}
+.contactDetails input:focus-within,
+.contactDetails textarea:focus-within {
+  outline-style: none;
+}
+
+/* Media Queries */
+
 @media only screen and (max-width: 1400px) {
-  .section {
+  .introduction {
     padding: 0 100px 0;
+  }
+  .contact {
+    padding-top: 100px;
+    padding-bottom: 50px;
   }
   .imageContainer {
     width: 30rem;
+  }
+  .contactImage {
+    width: 50%;
   }
   .about {
     padding: 72px 100px;
@@ -113,11 +265,15 @@
 }
 
 @media only screen and (max-width: 1280px) {
-  .section {
+  .introduction {
     padding: 0 100px 0;
   }
   .imageContainer {
     width: 25rem;
+  }
+  .contact {
+    padding-top: 100px;
+    padding-bottom: 50px;
   }
   .introLeft {
     max-width: 425px;
@@ -128,8 +284,14 @@
   .introLeft h3 {
     font-size: 1.75rem;
   }
+  .contactImage {
+    display: none;
+  }
   .about {
     padding: 72px 100px;
+  }
+  .clientele h1 {
+    font-size: 2rem;
   }
 }
 
@@ -163,9 +325,25 @@
     margin-left: 0;
     font-size: 1rem;
   }
+
+  .contact {
+    /* width: 500px; */
+    margin: 0 auto;
+    justify-content: center;
+    padding: 100px 0;
+  }
+
+  .contactLeftSection {
+    display: none;
+  }
+
+  .reviews {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 560px) {
   .introLeft {
     max-width: 300px;
   }
@@ -178,9 +356,20 @@
   .about {
     padding: 72px 0px;
   }
+  .contact {
+    width: 600px;
+    padding: 100px 0;
+  }
+  .contactDetails h1 {
+    font-size: 2rem;
+  }
+  .contactRightSection {
+    width: 80%;
+    padding: 40px 20px;
+  }
 }
 @media only screen and (max-width: 374px) {
-  .section {
+  .introduction {
     padding: 0 100px 0;
   }
   .introLeft {
@@ -198,11 +387,24 @@
     margin-bottom: 3rem;
     font-size: 0.75rem;
   }
+  .clientele h1 {
+    font-size: 1rem;
+  }
 
   .buttons div:first-child {
     margin-right: 1rem;
   }
   .about {
     padding: 72px 0px;
+  }
+  .contact {
+    padding: 50px 0;
+  }
+  .reviews {
+    padding: 20px;
+  }
+  .reviews {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }

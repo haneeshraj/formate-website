@@ -2,6 +2,7 @@ import Discord from "@/components/Logos/Discord";
 import Instagram from "@/components/Logos/Instagram";
 import Twitter from "@/components/Logos/Twitter";
 import Youtube from "@/components/Logos/Youtube";
+import Email from "@/components/Logos/Email";
 import Spotify from "@/components/Logos/Spotify";
 import styles from "./Footer.module.css";
 
@@ -14,6 +15,9 @@ function Footer() {
         </div>
         <div className={styles.logo}>
           <Spotify height="28px" width="28px" />
+        </div>
+        <div className={styles.logo}>
+          <Email height="28px" width="28px" />
         </div>
         <div className={styles.logo}>
           <Discord height="28px" width="28px" />

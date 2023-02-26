@@ -3,15 +3,26 @@ import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import Location from "@/components/Logos/Location";
+import Phone from "@/components/Logos/Phone";
+import Email from "@/components/Logos/Email";
+import Instagram from "@/components/Logos/Instagram";
 import Button from "@/components/Button/Button";
 import QuestionBox from "@/components/QuestionBox/QuestionBox";
 import questions from "public/data/aboutQuestion";
+import reviews from "public/data/clientReviews";
+import ReviewBox from "@/components/ReviewBox/ReviewBox";
+import ClientBox from "@/components/ClientBox/ClientBox";
 
-function ContactBoxes({ icon, text }) {
+function ContactBoxes({ children, text, onClick }) {
   return (
     <div className={styles.contactBoxContainer}>
-      <Image src={`/images/${icon}.png`} width="100" height="100" alt={icon} />
-      <span>{text}</span>
+      {children}
+      <span style={{ marginLeft: "1rem" }}>
+        {!text
+          ? "Duis ea esse ullamco est eiusmod dolor reprehenderit elit ad aute nostrud."
+          : text}
+      </span>
     </div>
   );
 }
@@ -75,40 +86,108 @@ export default function Home() {
             </div>
           </section>
           <section className={`${styles.section} ${styles.services}`}></section>
-          <section
-            className={`${styles.section} ${styles.clientele}`}
-          ></section>
-          <section className={`${styles.section} ${styles.reviews}`}></section>
+          <section className={`${styles.section} ${styles.clientele}`}>
+            <div className={styles.clienteleHeading}>
+              <h1>Clientele</h1>
+            </div>
+            <div className={styles.clients}>
+              <ClientBox />
+              <ClientBox />
+              <ClientBox />
+              <ClientBox />
+            </div>
+            <Button styles={{ margin: "auto", marginTop: "50px" }}>
+              All Clients
+            </Button>
+          </section>
+          <section className={`${styles.section} ${styles.reviews}`}>
+            <h1>Reviews</h1>
+            <h3>Labore et id amet dolor quis nisi ipsum.</h3>
+            <div className={styles.reviewsContainer}>
+              {reviews.map((service, index) => (
+                <ReviewBox
+                  comment={service.comment}
+                  rating={service.rating}
+                  services={service.services}
+                  website={service.website}
+                  key={index}
+                  styling={{ margin: "2rem auto" }}
+                />
+              ))}
+              <Button width={"50%"} styles={{ margin: "0 auto" }}>
+                Show more reviews
+              </Button>
+            </div>
+          </section>
           <section className={`${styles.section} ${styles.contact}`}>
             <div className={styles.contactLeftSection}>
-              <ContactBoxes />
-              <ContactBoxes />
-              <ContactBoxes />
-              <ContactBoxes />
+              <ContactBoxes text="136 University Blvd, Sydney, Nova Scotia - B1M 1A2">
+                <Location />
+              </ContactBoxes>
+              <ContactBoxes text={"+1 782-882-5427"}>
+                <Phone />
+              </ContactBoxes>
+              <ContactBoxes text="formantemusic@gmail.com">
+                <Email />
+              </ContactBoxes>
+              <ContactBoxes text={"theformante"}>
+                <Instagram height="31px" width="31px" />
+              </ContactBoxes>
             </div>
             <div className={styles.contactRightSection}>
-              <h1>Get In Touch</h1>
-              <p>Lorem ipsum dolor sit amet consectetur.</p>
               <div className={styles.contactDetails}>
+                <h1>Get In Touch</h1>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
                 <form onSubmit={() => console.log("it work")}>
-                  <label for="firstName">First Name</label>
-                  <input type="text" name="firstName" />
-                  <label for="lastName">Last Name</label>
-                  <input type="text" name="lastName" />
-                  <label for="email">E-mail</label>
-                  <input type="email" name="email" />
-                  <label for="phoneNumber">Phone Number</label>
-                  <input type="text" name="phoneNumber" />
-                  <label for="message">Message</label>
+                  <div style={{ display: "flex", marginBottom: "1rem" }}>
+                    <label htmlFor="firstName">
+                      First name
+                      <input type="text" name="firstName" />
+                    </label>
+                    <label htmlFor="lastName">
+                      Last name
+                      <input
+                        type="text"
+                        name="lastName"
+                        style={{ width: "100%" }}
+                      />
+                    </label>
+                  </div>
+                  <div style={{ display: "flex", marginBottom: "1rem" }}>
+                    <label htmlFor="email">
+                      E-mail
+                      <input type="email" name="email" />
+                    </label>
+                    <label htmlFor="phoneNumber">
+                      Phone number
+                      <input
+                        type="text"
+                        name="phoneNumber"
+                        style={{ width: "100%" }}
+                      />
+                    </label>
+                  </div>
+                  <label htmlFor="message">Message</label>
                   <textarea name="firstName" />
+                  <Button onClick={"submit"} width={"100%"}>
+                    SUBMIT
+                  </Button>
                 </form>
               </div>
-              <Image src={"/images/"} alt={"image"} width={300} height={300} />
+              <div className={styles.contactImage}>
+                <Image
+                  src={"/images/contact_character_v2.png"}
+                  alt={"contact_character_v2"}
+                  width={300}
+                  height={300}
+                  className={styles.image}
+                />
+              </div>
             </div>
           </section>
         </div>
         <Footer />
-      </div>{" "}
+      </div>
     </>
   );
 }
